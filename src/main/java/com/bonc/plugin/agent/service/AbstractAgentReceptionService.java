@@ -36,6 +36,10 @@ public abstract class AbstractAgentReceptionService implements AgentReceptionSer
 
         String username = TokenUtils.getUsername(request.getHeader("X-Access-Token"));
         log.info("token 查出来的用户名是：{}", username);
+        /**
+         * 逻辑说明：test
+         */
+        System.out.println("代码评审测试");
         if (username == null) {
             map.put("name", "谈佳俊");
             map.put("loginId", "tanjj11");
