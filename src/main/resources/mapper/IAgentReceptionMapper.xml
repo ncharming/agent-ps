@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bonc.plugin.agent.mapper.IAgentReceptionMapper">
+
+
+
+    <insert id="insertSession">
+    insert into agent_reception_session_info (session_id,session_type,session_flag,session_name,session_new) values
+        <foreach collection="map" index="map" item="item" separator="," >
+            (#{item.sessionId},#{item.sessionType},#{item.sessionFlag},#{item.sessionName},#{item.sessionNew})
+        </foreach>
+    </insert>
+
+    <update id="updateSession">
+        update agent_reception_session_info
+        <set>
+            <if test="sessionFlag!=null and sessionFlag!=''">
+                session_flag=#{sessionFlag},
+            </if>
+            <if test="sessionNew!=null and sessionNew!=''">
+                session_new=#{sessionNew}
+            </if>
+        </set>
+        <where>
+            <if test="sessionId!=null and sessionId!=''">
+               and session_id=#{sessionId}
+            </if>
+            <if test="sessionType!=null and sessionType!=''">
+               and session_type=#{sessionType}
+            </if>
+            <if test="1==1">
+                and session_new='new'
+            </if>
+        </where>
+
+    </update>
+
+    <select id="selectSession" resultType="java.util.Map">
+       select session_type,session_name
+       from  agent_reception_session_info
+       where session_id=#{sessionId} and session_flag='0' and session_new='new'
+    </select>
+
+</mapper>

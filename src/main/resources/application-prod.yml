@@ -1,0 +1,23 @@
+server:
+  port: 9889
+  servlet:
+    context-path: /agent/plugin
+
+spring:
+  application:
+    name: agent-plugin
+  config:
+    import:
+      - optional:nacos:agent-plugin.yaml
+  cloud:
+    nacos:
+      username: chatbi
+      password: 8uV2HbkGmzjhW34W6AIt
+      config:
+        server-addr: 10.188.64.64:8848
+        group: chatbi-indicators
+        namespace: dataplatform
+      discovery:
+        server-addr: ${spring.cloud.nacos.config.server-addr}
+        namespace: dataplatform
+        group: chatbi-indicators

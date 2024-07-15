@@ -1,0 +1,60 @@
+server:
+  port: 9889
+  servlet:
+    context-path: /agent/plugin
+
+spring:
+  application:
+    name: agent-plugin
+  config:
+    import:
+      - optional:nacos:agent-plugin.yaml
+  cloud:
+    nacos:
+      username: chatbi
+      password: 8uV2HbkGmzjhW34W6AIt
+      config:
+        server-addr: 134.78.13.60:8848
+        group: chatbi-indicators
+        namespace: dataplatform
+      discovery:
+        server-addr: ${spring.cloud.nacos.config.server-addr}
+        namespace: dataplatform
+        group: chatbi-indicators
+
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    druid:
+#      url: jdbc:mysql://localhost:3306/ms_031_pm_bak?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+#      username: root
+#      password: root
+#      driver-class-name: com.mysql.jdbc.Driver
+#      initial-size: 5
+#      min-idle: 5
+#      maxActive: 20
+#      maxWait: 60000
+#      timeBetweenEvictionRunsMillis: 60000
+#      minEvictableIdleTimeMillis: 300000
+#      validationQuery: SELECT 1 FROM DUAL
+#      testWhileIdle: true
+#      testOnBorrow: false
+#      testOnReturn: false
+#      poolPreparedStatements: true
+#      maxPoolPreparedStatementPerConnectionSize: 20
+#      filters: stat,wall,slf4j
+#
+#  redis:
+#    cluster:
+#      nodes: 10.188.204.76:32515,10.188.204.75:32515,10.188.204.72:32507,10.188.204.71:32507,10.188.204.74:32511,10.188.204.73:32507
+#    password: 'shunc!#10010sh#Chatbi'
+#
+#mybatis:
+#  mapper-locations: classpath*:mapper/**/*Mapper.xml
+#
+#agent:
+#  email_url: http://10.188.58.133:10045/purchaseback/login/getEmail
+#  roomlist_url: http://10.188.58.133:10045/tgcontentManager/queryconferenceroomai
+#  floorlist_url: http://10.188.58.133:10045/tgcontentManager/bpmfrom/queryfloor
+#  roomReservation_url: http://10.188.58.133:10045/tgcontentManager/bpmfrom/conferenceroomreserveai
+
+

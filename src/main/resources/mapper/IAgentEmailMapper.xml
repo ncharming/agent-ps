@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bonc.plugin.agent.mapper.IAgentEmailMapper">
+
+
+    <resultMap id="emailInfo" type="com.bonc.plugin.agent.entity.EmailSendEntity" >
+        <result column="send_doc" property="sendDoc" />
+        <result column="receiving_doc" property="receivingDoc" typeHandler="com.bonc.plugin.agent.config.ListToJsonTypeHandler" />
+        <result column="meet_time" property="meetTime" />
+        <result column="meet_desc" property="meetDesc" />
+        <result column="meet_place" property="meetPlace" />
+        <result column="meet_name" property="meetName" />
+        <result column="meet_topic" property="meetTopic" />
+        <result column="meet_object" property="meetObject" />
+        <result column="remark" property="remark" />
+        <result column="email_id" property="emailId" />
+    </resultMap>
+
+    <resultMap id="userInfo" type="com.bonc.plugin.agent.entity.UserInfoEntiry">
+        <result column="username" property="username" />
+        <result column="realname" property="realname" />
+        <result column="email" property="email" />
+    </resultMap>
+
+    <insert id="insertEmailLog" parameterType="com.bonc.plugin.agent.entity.EmailSendEntity">
+        insert into agent_email_info(send_doc,receiving_doc,meet_time,meet_desc,meet_place,meet_name
+        ,meet_topic,meet_object,remark,email_id)
+        values (#{sendDoc},#{receivingDoc,typeHandler=com.bonc.plugin.agent.config.ListToJsonTypeHandler},#{meetTime},#{meetDesc},#{meetPlace},#{meetName},#{meetTopic},
+        #{meetObject},#{remark},#{emailId})
+    </insert>
+
+    <select id="emailAcceptList" resultMap="userInfo" parameterType="java.lang.String">
+       select username,realname,email from chatbi_jeecgboot.sys_user
+             where
+    (username like concat('%',#{username},'%') or realname like concat('%',#{username},'%')) limit 50
+    </select>
+
+    <select id="getEmailInfo" parameterType="java.lang.String"
+            resultMap="emailInfo">
+        select * from  agent_email_info where email_id=#{emailId}
+    </select>
+
+
+</mapper>
