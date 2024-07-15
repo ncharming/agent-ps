@@ -25,6 +25,7 @@ import java.util.Map;
 public class AgentReceptionController {
 
 
+
     @Resource
     private Map<String, AgentReceptionService> idGenerator;
 
