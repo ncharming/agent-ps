@@ -40,11 +40,7 @@ public abstract class AbstractAgentReceptionService implements AgentReceptionSer
          * 逻辑说明：评审测试-1 -2 -3 -4 -5 -6
          */
         System.out.println("代码评审测试");
-        if (username == null) {
-            map.put("name", "谈佳俊");
-            map.put("loginId", "tanjj11");
-            return map;
-        }
+
         JSONObject data = RedisCache.getData(username);
         String name = data.getString("name");
         String empCode = data.getString("empCode");
