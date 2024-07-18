@@ -62,9 +62,9 @@ jobs:
           COMMIT_BRANCH: ${{env.BRANCH_NAME}}
           COMMIT_AUTHOR: ${{env.COMMIT_AUTHOR}}
           COMMIT_MESSAGE: ${{env.COMMIT_MESSAGE}}
-          WEIXIN_APPID: wx889423aa35ee5330
-          WEIXIN_SECRET: eb17b103866e05e7c7636971cbf281cc
-          WEIXIN_TOUSER: ogglW6VYf7nEvIP5HmST8I8b5Tzo
-          WEIXIN_TEMPLATE_ID: rOic6ZbVGYHpi1wIPDNjMA0qZzBHPDu_lZlh98SGs4E
+          WEIXIN_APPID: ${{ secrets.WEIXIN_APPID }}
+          WEIXIN_SECRET: ${{ secrets.WEIXIN_SECRET }}
+          WEIXIN_TOUSER: ${{ secrets.WEIXIN_TOUSER }}
+          WEIXIN_TEMPLATE_ID: ${{ secrets.WEIXIN_TEMPLATE_ID }}
           CHATGLM_APIHOST: https://open.bigmodel.cn/api/paas/v4/chat/completions
           CHATGLM_APIKEYSECRET: d3038be49a5178d419d414c8ed112c03.tLMnwvOUZ0qCv2WH
