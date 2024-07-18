@@ -57,7 +57,7 @@ jobs:
         run: java -jar ./libs/openai-code-review-sdk-1.1.jar
         env:
           GITHUB_REVIEW_LOG_URI: https://github.com/ncharming/agent-ps-log
-          GITHUB_TOKEN: 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
+          GITHUB_TOKEN: ${{ secrets.CODE_TOKEN }}
           COMMIT_PROJECT: ${{env.REPO_NAME}}
           COMMIT_BRANCH: ${{env.BRANCH_NAME}}
           COMMIT_AUTHOR: ${{env.COMMIT_AUTHOR}}
