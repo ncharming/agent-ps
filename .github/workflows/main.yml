@@ -57,7 +57,7 @@ jobs:
         run: java -jar ./libs/openai-code-review-sdk-1.1.jar
         env:
           # Github 配置；GITHUB_REVIEW_LOG_URI「https://github.com/xfg-studio-project/openai-code-review-log」、GITHUB_TOKEN「https://github.com/settings/tokens」
-          GITHUB_TOKEN: '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'
+          GITHUB_TOKEN: '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'
           GITHUB_REVIEW_LOG_URI: 'https://github.com/ncharming/agent-ps-log'
           COMMIT_PROJECT: ${{ env.REPO_NAME }}
           COMMIT_BRANCH: ${{ env.BRANCH_NAME }}
