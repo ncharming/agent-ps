@@ -57,14 +57,14 @@ jobs:
         run: java -jar ./libs/openai-code-review-sdk-1.1.jar
         env:
           GITHUB_REVIEW_LOG_URI: ${{ secrets.CODE_REVIEW_LOG_URI }}
-          GITHUB_TOKEN: ${{ secrets.CODE_TOKEN }}
-          COMMIT_PROJECT: ${{ env.REPO_NAME }}
-          COMMIT_BRANCH: ${{ env.BRANCH_NAME }}
-          COMMIT_AUTHOR: ${{ env.COMMIT_AUTHOR }}
-          COMMIT_MESSAGE: ${{ env.COMMIT_MESSAGE }}
-          WEIXIN_APPID: ${{ secrets.WEIXIN_APPID }}
-          WEIXIN_SECRET: ${{ secrets.WEIXIN_SECRET }}
-          WEIXIN_TOUSER: ${{ secrets.WEIXIN_TOUSER }}
-          WEIXIN_TEMPLATE_ID: ${{ secrets.WEIXIN_TEMPLATE_ID }}
-          CHATGLM_APIHOST: ${{ secrets.CHATGLM_APIHOST }}
-          CHATGLM_APIKEYSECRET: ${{ secrets.CHATGLM_APIKEYSECRET }}
+          GITHUB_TOKEN: ${{secrets.CODE_TOKEN}}
+          COMMIT_PROJECT: ${{env.REPO_NAME}}
+          COMMIT_BRANCH: ${{env.BRANCH_NAME}}
+          COMMIT_AUTHOR: ${{env.COMMIT_AUTHOR}}
+          COMMIT_MESSAGE: ${{env.COMMIT_MESSAGE}}
+          WEIXIN_APPID: ${{secrets.WEIXIN_APPID}}
+          WEIXIN_SECRET: ${{secrets.WEIXIN_SECRET}}
+          WEIXIN_TOUSER: ${{secrets.WEIXIN_TOUSER}}
+          WEIXIN_TEMPLATE_ID: ${{secrets.WEIXIN_TEMPLATE_ID}}
+          CHATGLM_APIHOST: ${{secrets.CHATGLM_APIHOST}}
+          CHATGLM_APIKEYSECRET: ${{secrets.CHATGLM_APIKEYSECRET}}
